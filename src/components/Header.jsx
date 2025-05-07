@@ -3,9 +3,9 @@ import React from 'react'
 const Header = () => {
   return (
     <>
-    <section className='w-full flex flex-row justify-between items-center md:py-[30px] md:px-[100px] px-[20px] py-[20px]
+    <section className=' fixed w-full flex flex-row justify-between items-center md:py-[30px] md:px-[100px] px-[20px] py-[20px]
     border-b-2 border-b-[#F8F8F9]
-    bg-[#FFFFFFF2]'>
+    bg-[#FFFFFFF2] z-10 backdrop-blur-md '>
     <div>
       <img src='https://ik.imagekit.io/rwgk2b4rf/svgexport-1.svg?updatedAt=1746608981140'></img>
     </div>

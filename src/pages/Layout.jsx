@@ -7,7 +7,8 @@ const Layout = () => {
     <>
     <Header /> 
     <Outlet  />
-<Footer />
+    Golang
+{/* <Footer /> */}
     </>
   )
 }

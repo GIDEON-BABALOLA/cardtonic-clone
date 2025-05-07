@@ -1,8 +1,9 @@
 import React from 'react'
+import Video from './Video';
 import { FaArrowRight } from "react-icons/fa";
 const Hero = () => {
   return (
-    <section className='flex flex-col items-center py-[30px] gap-10'>
+    <section className='flex flex-col items-center py-[30px] gap-10 pt-[140px]'>
       <div className='flex flex-row gap-2 items-center bg-[#FFFFFF] border-[#F8F8F9] border-[1.9px] border-solid p-2 pt-0 pb-0 pr-0 rounded-3xl text-[#1B507E]'>
 <div className=''>Try our Gift Card Developer API</div> 
 <span className='bg-[#7580EF] text-white p-3 rounded-full'> < FaArrowRight /></span>   
@@ -22,7 +23,7 @@ Cardtonic is the best platform to get virtual dollar cards, trade gift cards, pa
   transition-colors duration-500
   flex justify-center items-center text-center
   px-[50px] py-[30px] md:py-[40px] w-[100%] hover:bg-[#7580EF] bg-[#002444]
-  rounded-full text-white cursor-pointer  text-1xl mdtext-2xl'>
+  rounded-full text-white cursor-pointer  text-1xl md:text-2xl'>
     <span className='hidden md:flex'>Get Started</span>
     <span className='md:hidden flex'> <img src='https://ik.imagekit.io/rwgk2b4rf/svgexport-7%20(1).svg'/>&nbsp; Web Sign Up</span>
     </button>
