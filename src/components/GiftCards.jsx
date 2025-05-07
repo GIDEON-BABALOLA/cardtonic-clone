@@ -21,14 +21,16 @@ const GiftCards = () => {
     <section className='flex flex-col justify-between items-center gap-10 p-10 '>
    {data.map((content, index) => (
     <div key={index} className=' 
-    bg-[#ebfdff] w-full rounded-2xl lg:p-20 p-10 pr-0 flex lg:flex-row flex-col group cursor-pointer gap-[50px] lg:gap-[0px]' >
+    bg-[#ebfdff] w-full rounded-4xl  lg:p-20 lg:pb-0 lg:pr-0 pb-0 p-10 pr-0 flex lg:flex-row flex-col group cursor-pointer gap-[50px] lg:gap-[0px]' >
 <div className='flex flex-col'>
 <span className='text-[25px] lg:text-[40px] text-[#002444] mb-4 font-semibold'>{content.title}</span>
 <span className=' text-[17px] lg:text-[20px] text-[#1B507E] mb-10'>{content.description}</span>
-<span className='text-[#7580EF] flex flex-row  gap-3 text-[21px] font-semibold'>{content.action} <FaArrowRight /></span>
+<span className='text-[#7580EF] flex flex-row  gap-3 text-[18px] lg:text-[21px] font-semibold'>{content.action} <FaArrowRight /></span>
 </div>
 <div>
-  <img src={content.image} className='w-full bg-transparent transform group-hover:scale-105 transition-transform duration-500'/>
+  <img src={content.image} className='w-full bg-transparent transform group-hover:scale-105 transition-transform duration-500
+  rounded-br-4xl
+  '/>
     </div>
     </div>
    ))}
