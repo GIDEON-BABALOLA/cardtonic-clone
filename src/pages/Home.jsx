@@ -4,6 +4,7 @@ import Video from '../components/Video'
 import Hero from '../components/Hero'
 import GiftCards from '../components/GiftCards'
 import VirtualDollarCard from '../components/VirtualDollarCard'
+import GadgetsAndBills from '../components/GadgetsAndBills'
 const Home = () => {
   return (
     <>
@@ -17,6 +18,7 @@ const Home = () => {
       <span className="text-[#d1e0e4] text-[30px] sm:text-[64px] font-semibold">Products</span>
     </section>
     <VirtualDollarCard />
+    <GadgetsAndBills />
     </>
   )
 }
