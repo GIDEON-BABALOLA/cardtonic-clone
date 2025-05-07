@@ -4,4 +4,14 @@ body{
     width: 100%;
     overflow-x: hidden;
     font-family: "Poppins";
+    scrollbar-width: none;
 }
+html{
+    scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+  }
+html::-webkit-scrollbar {
+    display: none;
+  }
