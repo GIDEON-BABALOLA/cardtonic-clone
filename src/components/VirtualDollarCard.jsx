@@ -2,7 +2,7 @@ import { FaArrowRight } from "react-icons/fa"
 const VirtualDollarCard = () => {
   return (
     <>
-       <section className='flex flex-col w-full gap-10 p-10 '>
+       <section className='flex flex-col w-full gap-10 p-5 lg:p-10 '>
     <div className=' w-full
        bg-gradient-to-b from-[#FFF1ED] to-[#FFE7DF] rounded-4xl py-10 lg:py-10 px-5 lg:px-20  flex lg:flex-row flex-col group cursor-pointer
        justify-between lg:gap-[0px] gap-[40px]' >

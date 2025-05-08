@@ -18,10 +18,11 @@ const GiftCards = () => {
     ]
   return (
     <>
-    <section className='flex flex-col justify-between items-center gap-10 p-10 '>
+    <section className='flex flex-col justify-between items-center gap-10 p-5 lg:p-10 '>
    {data.map((content, index) => (
     <div key={index} className=' 
-    bg-[#ebfdff] w-full rounded-4xl  lg:p-20 lg:pb-0 lg:pr-0 pb-0 p-10 pr-0 flex lg:flex-row flex-col group cursor-pointer gap-[50px] lg:gap-[0px]' >
+    bg-[#ebfdff] w-full rounded-4xl lg:p-20 lg:pb-0 lg:pr-0 pb-0 p-10 pr-0 flex lg:flex-row flex-col group cursor-pointer gap-[50px] lg:gap-[0px]
+    ' >
 <div className='flex flex-col'>
 <span className='text-[25px] lg:text-[40px] text-[#002444] mb-4 font-semibold'>{content.title}</span>
 <span className=' text-[17px] lg:text-[20px] text-[#1B507E] mb-10'>{content.description}</span>
