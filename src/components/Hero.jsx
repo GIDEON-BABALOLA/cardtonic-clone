@@ -4,16 +4,17 @@ import { FaArrowRight } from "react-icons/fa";
 const Hero = () => {
   return (
     <section className='flex flex-col items-center py-[30px] gap-10 pt-[140px]'>
-      <div className='flex flex-row gap-2 items-center bg-[#FFFFFF] border-[#F8F8F9] border-[1.9px] border-solid p-2 pt-0 pb-0 pr-0 rounded-3xl text-[#1B507E]'>
+      <div className='flex flex-row gap-2 items-center bg-[#FFFFFF] border-[#F8F8F9] border-[1.9px] border-solid p-2 pt-0 pb-0 pr-0 rounded-3xl text-[#1B507E]
+      reveal-try-section'>
 <div className=''>Try our Gift Card Developer API</div> 
 <span className='bg-[#7580EF] text-white p-3 rounded-full'> < FaArrowRight /></span>   
 </div>
 <div className='flex flex-col justify-center items-center mt-8 md:mt-5'>
-  <span className='text-center font-semibold  px-3 md:leading-20'>
+  <span className='text-center font-semibold  px-3 md:leading-20 antialiased reveal-hero-section'>
     <span className='text-[#002444] text-[35px] md:text-[64px]'>Explore virtual cards, gift cards and </span>
     <span className="text-[#7580EF] text-[35px] md:text-[64px]">digital payment solutions</span>
     </span>
-    <span className=' text-center max-w-[500px] text-[20px] text-[#002444]'>
+    <span className=' text-center max-w-[500px] text-[20px] text-[#002444] reveal-next-hero-section'>
 Cardtonic is the best platform to get virtual dollar cards, trade gift cards, pay bills and buy gadgets.
     </span>
 
@@ -22,6 +23,7 @@ Cardtonic is the best platform to get virtual dollar cards, trade gift cards, pa
   <button className='
   transition-colors duration-500
   flex justify-center items-center text-center
+  reveal-get-started-section
   px-[50px] py-[30px] md:py-[40px] w-[100%] hover:bg-[#7580EF] bg-[#002444]
   rounded-full text-white cursor-pointer  text-1xl md:text-2xl'>
     <span className='hidden md:flex'>Get Started</span>
@@ -31,6 +33,7 @@ Cardtonic is the best platform to get virtual dollar cards, trade gift cards, pa
   transition-colors duration-500
   sm:hidden mt-3
   flex justify-center items-center text-center
+  reveal-get-started-section
   px-[50px] py-[30px] md:py-[40px] w-[100%] hover:bg-[#7580EF] bg-[#0BC7E0]
   rounded-full text-black cursor-pointer  text-1xl mdtext-2xl'>
     <span className='hidden md:flex'>Get Started</span>
