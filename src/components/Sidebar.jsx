@@ -1,5 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
+import { FaApple } from 'react-icons/fa';
+import { FaGooglePlay } from 'react-icons/fa';
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       const [accordionOpen, setAccordionOpen] = useState(false)
       const toggleAccordion = (index) => {
@@ -127,14 +129,14 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       ]
   return (
     <div
-    class={` flex lg:hidden fixed top-18 left-0 h-full w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
+    class={` flex lg:hidden flex-col fixed top-18 left-0 overflow-y-auto  w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
       ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
   >
     <div class="flex flex-col items-center w-full">
       <ul class="mt-4 space-y-4 text-lg">
       {
         sidebarData.map((content, index) => (
-          <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[30px] rounded-2xl'>
+          <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[20px] rounded-2xl'>
           <button
          onClick={() => toggleAccordion(index)}
           className='flex justify-between w-full cursor-pointer '>
@@ -147,7 +149,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
             ${accordionOpen[index] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
             <div className='overflow-hidden flex flex-col justify-between gap-[30px] mt-10'>
               {content.content.map((item, index) => (
-                <span className="text-[#002444;]" key={index}>{item.title}</span>
+                <div key={index} className='flex flex-row max-w-[300px] items-center justify-between gap-[20px] py-[20px]'>
+                    <img src={item.image}/>
+                    <div className='flex flex-col'>
+                        <span className='text-[#002444] font-semibold text-1xl'>{item.title}</span>
+                        <span className=' text-[#1B507E] text-[15px] font-light'>{item.description}</span>
+                    </div>
+                </div>
               ))}
             </div>
           </div>
@@ -156,6 +164,14 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         ))
       }
       </ul>
+    </div>
+    <div className='flex flex-col justify-between gap-[15px] items-center'>
+        <button className='bg-[#252525] flex flex-row text-white px-10 py-10 min-w-[280px] rounded-full
+        justify-between  items-center cursor-pointer'><FaApple className='text-white' size={30}/>
+        <span className='text-[20px] font-medium'>Get on iPhone</span></button>
+        <button className='bg-[#086C30] flex flex-row text-white px-10 py-10 min-w-[280px] rounded-full
+        justify-between gap-[10px] items-center cursor-pointer'><FaGooglePlay className="text-white" size={30}/>
+        <span className='text-[20px] font-medium'>Get on Android</span></button>
     </div>
   </div>
 
