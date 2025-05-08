@@ -7,6 +7,7 @@ import VirtualDollarCard from '../components/VirtualDollarCard'
 import GadgetsAndBills from '../components/GadgetsAndBills'
 import Testimonials from '../components/Testimonials'
 import { TrustedBy } from '../components/TrustedBy'
+import GetTheApp from '../components/GetTheApp'
 const Home = () => {
   return (
     <>
@@ -26,6 +27,7 @@ const Home = () => {
     </section>
     <Testimonials />
     <TrustedBy />
+    <GetTheApp />
     </>
   )
 }
