@@ -135,7 +135,7 @@ const Footer = () => {
           <div key={index} className='justify-between items-center  min-w-[300px] py-[50px]'>
           <button
          onClick={() => toggleAccordion(index)}
-          className='flex justify-between w-full'>
+          className='flex justify-between w-full cursor-pointer'>
             <span className='text-[#1B507E] font-semibold'>{content.title}</span>
             { accordionOpen[index] ? <span className='text-3xl text-[#1B507E]'>-</span>
             : <span className='text-3xl text-[#1B507E]'>+</span> }
