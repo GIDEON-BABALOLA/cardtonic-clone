@@ -5,6 +5,8 @@ import Hero from '../components/Hero'
 import GiftCards from '../components/GiftCards'
 import VirtualDollarCard from '../components/VirtualDollarCard'
 import GadgetsAndBills from '../components/GadgetsAndBills'
+import Testimonials from '../components/Testimonials'
+import { TrustedBy } from '../components/TrustedBy'
 const Home = () => {
   return (
     <>
@@ -19,6 +21,11 @@ const Home = () => {
     </section>
     <VirtualDollarCard />
     <GadgetsAndBills />
+    <section className='flex pl-[40px] items-center pt-[100px] sm:pt-[150px] pb-[20px] max-w-[10px]'>
+      <span className="text-[#d1e0e4] text-[30px] sm:text-[64px] font-semibold">Testimonials & News</span>
+    </section>
+    <Testimonials />
+    <TrustedBy />
     </>
   )
 }
