@@ -131,7 +131,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       ]
   return (
     <div
-    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen pb-[100px] overflow-y-auto 
+    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen pb-[200px] overflow-y-auto 
     w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
       ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
   >
