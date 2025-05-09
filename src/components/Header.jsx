@@ -77,6 +77,3 @@ console.log(e.target.innerText)
 
 export default Header
 
-// Object.keys(navs).findIndex(key => navs[key] === true)
-// Object.keys(navs).findIndex(key => navs[key] === true)
-// Object.keys(navs).findIndex(key => navs[key] === true)

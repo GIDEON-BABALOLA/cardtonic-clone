@@ -1,6 +1,27 @@
 import React from 'react'
 import { useEffect, useState } from 'react';
 const NavSection = ({ navs, show, setShow }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (event) => {
+      // Update the mouse position when the mouse moves
+      console.log(event.clientX);
+      
+      setMousePosition({
+          x: event.clientX,  // Mouse X position
+          y: event.clientY   // Mouse Y position
+      });
+  };
+
+  useEffect(() => {
+      // Add event listener when the component mounts
+      window.addEventListener('mousemove', handleMouseMove);
+
+      // Clean up event listener when the component unmounts
+      return () => {
+          window.removeEventListener('mousemove', handleMouseMove);
+      };
+  }, []);
     const sidebarData = [
         {
           title : "Gift Cards",
@@ -129,7 +150,7 @@ const handleMouseLeave = () => {
   return (
     <section className={`
         
-        absolute left-40 top-20 bg-[#FFFFFF] border-[2px] border-solid border-[#F8F8F9]
+        absolute left-40 top-23 bg-[#FFFFFF] border-[2px] border-solid border-[#F8F8F9]
     p-[24px]  hidden ${show ? "lg:flex" : "lg:hidden"} items-center justify-center z-[10] rounded-3xl
     ${Object.keys(navs).findIndex(key => navs[key] === true) == 1  ? "left-80" :
          Object.keys(navs).findIndex(key => navs[key] === true) == 2 ? "left-80" : "left-40"} gap-4
