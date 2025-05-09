@@ -6,6 +6,7 @@ import { FaGooglePlay } from 'react-icons/fa';
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       const [accordionOpen, setAccordionOpen] = useState(false)
       const toggleAccordion = (index) => {
+        console.log(index)
         setAccordionOpen((prev) => ({
           ...prev,
           [index]: !prev[index],
@@ -65,7 +66,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         },
         {
           title : "Products",
-          content : [
+          content : 
             [
                 {
                  "image" : "https://ik.imagekit.io/rwgk2b4rf/Just%20Gadgets.svg?updatedAt=1746608979280",
@@ -87,7 +88,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
                   "title": "Virtual Bank Account",
                   "description": "Open a Naira virtual bank account for easy topups."
                 }
-              ]
+              
               
           ]
         },
@@ -138,9 +139,10 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       <ul className="mt-4 space-y-4 text-lg">
       {
         sidebarData.map((content, index) => (
-          <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[20px] rounded-2xl'>
+          <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[20px] rounded-2xl'
+          onClick={() => toggleAccordion(index)}
+          >
           <button
-         onClick={() => toggleAccordion(index)}
           className='flex justify-between w-full cursor-pointer '>
             <span className='text-[#002444;] font-light'>{content.title}</span>
             { accordionOpen[index] ? <span className='text-3xl text-[#002444;] font-light'>-</span>
@@ -149,12 +151,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           <div className={`grid overflow-hidden transition-all duration-500
             ease-in-out text-slate-600 text-sm
             ${accordionOpen[index] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-            <div className='overflow-hidden flex flex-col justify-between gap-[30px] mt-10'>
+            <div className='overflow-hidden flex flex-col justify-between gap-[5px] mt-10'>
               {content.content.map((item, index) => (
                 <div key={index} className='flex flex-row max-w-[300px] items-center justify-between gap-[20px] py-[20px]'>
                     <img src={item.image}/>
                     <div className='flex flex-col'>
-                        <span className='text-[#002444] font-semibold text-1xl'>{item.title}</span>
+                        <span className='text-[#002444] font-semibold text-[15px]'>{item.title}</span>
                         <span className=' text-[#1B507E] text-[15px] font-light'>{item.description}</span>
                     </div>
                 </div>
