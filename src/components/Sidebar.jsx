@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import { FaApple } from 'react-icons/fa';
+import {noScrollbarsClassName} from 'react-remove-scroll-bar'
 import { FaGooglePlay } from 'react-icons/fa';
 const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       const [accordionOpen, setAccordionOpen] = useState(false)
@@ -129,11 +130,12 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       ]
   return (
     <div
-    class={` flex lg:hidden flex-col fixed top-18 left-0 overflow-y-auto  w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
+    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen overflow-y-auto 
+      ${noScrollbarsClassName} w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
       ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
   >
-    <div class="flex flex-col items-center w-full">
-      <ul class="mt-4 space-y-4 text-lg">
+    <div className="flex flex-col items-center w-full">
+      <ul className="mt-4 space-y-4 text-lg">
       {
         sidebarData.map((content, index) => (
           <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[20px] rounded-2xl'>
