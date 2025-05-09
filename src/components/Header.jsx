@@ -1,14 +1,33 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import Sidebar from './Sidebar';
 import { RemoveScrollBar } from 'react-remove-scroll-bar';
+import NavSection from './NavSection';
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-
+  const [show, setShow] = useState(false)
+  const [navs, setNavs] = useState({
+    "Gift Cards" : false,
+    "Products" : false,
+    "Explore" : false,
+  })
 const toggleSidebar = () => {
   console.log("how")
   setIsSidebarOpen(!isSidebarOpen);
 };
+useEffect(() => {
+console.log(navs)
+}, [navs])
+const toggleNavbar = (e) => {
+  setShow(true)
+  console.log(e.target.innerText)
+  setNavs({
+    "Gift Cards" : "Gift Cards" === e.target.innerText,
+    "Products" : "Products" === e.target.innerText,
+    "Explore" : "Explore" === e.target.innerText
+   })
+console.log(e.target.innerText)
+}
   return (
     <>
     {isSidebarOpen && <RemoveScrollBar />}
@@ -21,13 +40,16 @@ const toggleSidebar = () => {
       src='https://ik.imagekit.io/rwgk2b4rf/svgexport-1.svg?updatedAt=1746608981140'></img>
     </div>
     <div className=' lg:flex flex-row justify-between items-center gap-7 hidden'>
-      <span className='text-[#002444] cursor-pointer'>
+      <span className='text-[#002444] cursor-pointer'  
+      onMouseEnter={(e) => toggleNavbar(e)}>
       Gift Cards
       </span>
-      <span  className='text-[#002444]cursor-pointer'>
+      <span  className='text-[#002444] cursor-pointer'
+       onMouseEnter={(e) => toggleNavbar(e)}>
         Products
       </span>
-      <span  className='text-[#002444] cursor-pointer'>
+      <span  className='text-[#002444] cursor-pointer' 
+      onMouseEnter={(e) => toggleNavbar(e)}>
         Explore
       </span>
     </div>
@@ -48,8 +70,13 @@ const toggleSidebar = () => {
       <button className='hover:bg-[#7580EF] bg-[#002444] text-white py-3 px-7 rounded-3xl font-bold'>Get Started</button>
     </div>
     </section>
+    <NavSection navs={navs} show={show} setShow={setShow}/>
     </>
   )
 }
 
 export default Header
+
+// Object.keys(navs).findIndex(key => navs[key] === true)
+// Object.keys(navs).findIndex(key => navs[key] === true)
+// Object.keys(navs).findIndex(key => navs[key] === true)

@@ -1,16 +1,7 @@
 import React from 'react'
-import { useState } from 'react';
-import { FaApple } from 'react-icons/fa';
-import { FaGooglePlay } from 'react-icons/fa';
-const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
-      const [accordionOpen, setAccordionOpen] = useState(false)
-      const toggleAccordion = (index) => {
-        setAccordionOpen((prev) => ({
-          ...prev,
-          [index]: !prev[index],
-        }));
-      };
-      const sidebarData = [
+import { useEffect, useState } from 'react';
+const NavSection = ({ navs, show, setShow }) => {
+    const sidebarData = [
         {
           title : "Gift Cards",
           content :[
@@ -127,72 +118,44 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           
         },
       ]
+const activeIndex = Object.keys(navs).findIndex(key => navs[key] === true);
+const isActive = activeIndex !== -1;  // To check if any nav is active
+const handleMouseEnter = () => {
+setShow(true)
+}
+const handleMouseLeave = () => {
+    setShow(false)
+}
   return (
-    <div
-    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen pb-[200px] overflow-y-auto 
-    w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
-      ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
-  >
-    <div className="flex flex-col items-center w-full">
-      <ul className="mt-4 space-y-4 text-lg">
-      {
-        sidebarData.map((content, index) => (
-          <div key={index} className='justify-between items-center px-[20px] bg-[#F8F8F9]  min-w-[300px] py-[20px] rounded-2xl'
-          onClick={() => toggleAccordion(index)}
-          >
-          <button
-          className='flex justify-between w-full cursor-pointer '>
-            <span className='text-[#002444;] font-light'>{content.title}</span>
-            { accordionOpen[index] ? <span className='text-3xl text-[#002444;] font-light'>-</span>
-            : <span className='text-3xl text-[#002444;] font-light'>+</span> }
-          </button>
-          <div className={`grid overflow-hidden transition-all duration-500
-            ease-in-out text-slate-600 text-sm
-            ${accordionOpen[index] ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"}`}>
-            <div className='overflow-hidden flex flex-col justify-between gap-[5px] mt-10'>
-              {content.content.map((item, index) => (
+    <section className={`
+        
+        absolute left-40 top-20 bg-[#FFFFFF] border-[2px] border-solid border-[#F8F8F9]
+    p-[24px]  hidden ${show ? "lg:flex" : "lg:hidden"} items-center justify-center z-[10] rounded-3xl
+    ${Object.keys(navs).findIndex(key => navs[key] === true) == 1  ? "left-80" :
+         Object.keys(navs).findIndex(key => navs[key] === true) == 2 ? "left-80" : "left-40"} gap-4
+    cursor-pointer`} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <div className={`grid ${Object.keys(navs).findIndex(key => navs[key] === true) == 1  ? "grid-cols-2" :
+         Object.keys(navs).findIndex(key => navs[key] === true) == 2 ? "grid-cols-2" : "grid-cols-3"} gap-4
+         ${Object.keys(navs).findIndex(key => navs[key] === true) == -1 && "hidden"}
+         `}>
+     {isActive && activeIndex !== -1 && sidebarData[Object.keys(navs).findIndex(key => navs[key] === true)].content.map((item, index) => (
+        <div key={index} className='hover:bg-[#F8F8F9] py-1 px-2 rounded-[10px]'>
+               
                 <div key={index} className='flex flex-row max-w-[300px] items-center justify-between gap-[20px] py-[20px]'>
-                    <img src={item.image}/>
-                    <div className='flex flex-col'>
-                        <span className='text-[#002444] font-semibold text-[15px]'>{item.title}</span>
-                        <span className=' text-[#1B507E] text-[15px] font-light'>{item.description}</span>
-                    </div>
+                <img src={item.image}/>
+                <div className='flex flex-col'>
+                    <span className='text-[#002444] font-semibold text-[15px]'>{item.title}</span>
+                    <span className=' text-[#1B507E] text-[15px] font-light'>{item.description}</span>
                 </div>
-              ))}
             </div>
-          </div>
-            
-     </div>
-        ))
-      }
-      </ul>
-    </div>
-    <div className='flex flex-col justify-between gap-[15px] items-center px-[20px] mt-[30px]'>
-        <button className='bg-[#252525] flex flex-row text-white px-10 py-8 w-full rounded-full
-      cursor-pointer'>
-        <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
-        <span className='text-center'><FaApple className='text-white' size={30}/></span>
-        <span className='text-[20px] text-center font-medium'>Get on iPhone</span>
-        </div>
-        </button>
-        <button className='bg-[#086C30] flex flex-row text-white px-10 py-8 w-full rounded-full
-         cursor-pointer'>
-          <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
-          <span><FaGooglePlay className="text-white" size={25}/></span>
-        <span className='text-[20px] font-medium'>Get on Android</span>
-        </div>
-        </button>
-        <button className='bg-[#06284C] flex flex-row text-white px-10 py-8 w-full rounded-full
-         cursor-pointer'>
-          <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
-          <span><img src='https://ik.imagekit.io/rwgk2b4rf/svgexport-7%20(1).svg'/></span>
-        <span className='text-[20px] font-medium'>Web Sign Up</span>
-        </div>
-        </button>
-    </div>
-  </div>
+   
+            </div>
 
+              ))}
+
+</div>
+    </section>
   )
 }
 
-export default Sidebar
+export default NavSection
