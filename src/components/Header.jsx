@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
 import Sidebar from './Sidebar';
+import { RemoveScrollBar } from 'react-remove-scroll-bar';
 const Header = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
@@ -10,6 +11,7 @@ const toggleSidebar = () => {
 };
   return (
     <>
+    {isSidebarOpen && <RemoveScrollBar />}
     <Sidebar isSidebarOpen={isSidebarOpen} toggleSidebar={toggleSidebar}/>
     <section className=' fixed w-full flex flex-row justify-between items-center md:py-[30px] md:px-[100px] px-[20px] py-[20px]
     border-b-2 border-b-[#F8F8F9]

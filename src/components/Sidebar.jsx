@@ -131,7 +131,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
   return (
     <div
     className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen overflow-y-auto 
-      ${noScrollbarsClassName} w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
+    w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
       ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
   >
     <div className="flex flex-col items-center w-full">
@@ -167,13 +167,21 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       }
       </ul>
     </div>
-    <div className='flex flex-col justify-between gap-[15px] items-center'>
-        <button className='bg-[#252525] flex flex-row text-white px-10 py-10 min-w-[280px] rounded-full
-        justify-between  items-center cursor-pointer'><FaApple className='text-white' size={30}/>
-        <span className='text-[20px] font-medium'>Get on iPhone</span></button>
-        <button className='bg-[#086C30] flex flex-row text-white px-10 py-10 min-w-[280px] rounded-full
-        justify-between gap-[10px] items-center cursor-pointer'><FaGooglePlay className="text-white" size={30}/>
-        <span className='text-[20px] font-medium'>Get on Android</span></button>
+    <div className='flex flex-col justify-between gap-[15px] items-center px-[20px] mt-[30px]'>
+        <button className='bg-[#252525] flex flex-row text-white px-10 py-8 w-full rounded-full
+      cursor-pointer'>
+        <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
+        <span className='text-center'><FaApple className='text-white' size={30}/></span>
+        <span className='text-[20px] text-center font-medium'>Get on iPhone</span>
+        </div>
+        </button>
+        <button className='bg-[#086C30] flex flex-row text-white px-10 py-8 w-full rounded-full
+         cursor-pointer'>
+          <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
+          <span><FaGooglePlay className="text-white" size={25}/></span>
+        <span className='text-[20px] font-medium'>Get on Android</span>
+        </div>
+        </button>
     </div>
   </div>
 
