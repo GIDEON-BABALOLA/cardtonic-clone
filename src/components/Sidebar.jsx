@@ -131,7 +131,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       ]
   return (
     <div
-    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen overflow-y-auto 
+    className={` flex lg:hidden flex-col fixed top-18 left-0  h-screen pb-[100px] overflow-y-auto 
     w-full bg-[#FFFFFFF2] transform transition-transform duration-600 ease-in-out z-40
       ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'} backdrop-blur-lg `}
   >
@@ -182,6 +182,13 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
           <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
           <span><FaGooglePlay className="text-white" size={25}/></span>
         <span className='text-[20px] font-medium'>Get on Android</span>
+        </div>
+        </button>
+        <button className='bg-[#06284C] flex flex-row text-white px-10 py-8 w-full rounded-full
+         cursor-pointer'>
+          <div className='flex flex-row items-center justify-center w-full gap-[10px]'>
+          <span><img src='https://ik.imagekit.io/rwgk2b4rf/svgexport-7%20(1).svg'/></span>
+        <span className='text-[20px] font-medium'>Web Sign Up</span>
         </div>
         </button>
     </div>
